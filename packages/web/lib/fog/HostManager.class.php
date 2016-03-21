@@ -10,6 +10,13 @@ class HostManager extends FOGManagerController
 			throw new Exception($this->foglang['ErrorMultipleHosts']);
 		return current($Hosts);
 	}
+	
+	public function getHostByName($name,$primaryOnly = false)
+	{
+		$Host = current($this->FOGCore->getClass('HostManager')->find(array('name' => $name)));
+		return $Host;
+	}
+	
 	public function isSafeHostName($hostname)
 	{
 		return (preg_match("#^[0-9a-zA-Z_\-]*$#",$hostname) && strlen($hostname) > 0 && strlen($hostname) <= 15);

@@ -761,7 +761,15 @@ class BootMenu extends FOGBase {
 					"boot",
 				);
 				$this->parseMe($Send);
-			} else $this->printTasking($kernelArgsArray);
+			} 
+			else if ($Task->get('typeID') == 25)
+			{
+				print "#!ipxe\n";
+				print "$this->memdisk raw\n";
+				print  "initrd $this->Host->get('kernel')\n";
+				print "boot\n";
+			}
+			else $this->printTasking($kernelArgsArray);
 		}
 	}
 	/** @function menuItem() set's up the menu items as passed
