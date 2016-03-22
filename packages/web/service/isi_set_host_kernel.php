@@ -20,6 +20,8 @@ try
         	throw new Exception('error host not found');
         }
         $Host->set('kernel', $kernel_path)
+        if ($Host->save()) $Datatosend = "#!ok\n";
+        else throw new Exception('#!er: Error adding kernel path');
         print 'True';
 }
 catch (Exception $e)
