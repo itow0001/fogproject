@@ -763,6 +763,9 @@ class BootMenu extends FOGBase {
 				);
 				$this->parseMe($Send);
 			} 
+			/* isi
+			 * custom option to allow for defining external kernel boots
+			 */
 			else if ($Task->get('typeID') == 25)
 			{
 				

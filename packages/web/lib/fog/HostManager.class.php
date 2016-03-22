@@ -10,7 +10,9 @@ class HostManager extends FOGManagerController
 			throw new Exception($this->foglang['ErrorMultipleHosts']);
 		return current($Hosts);
 	}
-	
+	/* isi
+	 *  Change to allow lookup by hostname
+	 */
 	public function getHostByName($name,$primaryOnly = false)
 	{
 		$Host = current($this->FOGCore->getClass('HostManager')->find(array('name' => $name)));
