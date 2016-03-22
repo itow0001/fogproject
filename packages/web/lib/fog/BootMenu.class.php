@@ -605,6 +605,7 @@ class BootMenu extends FOGBase {
 	  */
 	public function getTasking() {
 		$Task = $this->Host->get('task');
+		$Kernel = $this->Host->get('kernel');
 		if (!$Task->isValid()) {
 			if ($this->FOGCore->getSetting('FOG_NO_MENU')) $this->noMenu();
 			else $this->printDefault();
@@ -764,9 +765,10 @@ class BootMenu extends FOGBase {
 			} 
 			else if ($Task->get('typeID') == 25)
 			{
+				
 				print "#!ipxe\n";
 				print "$this->memdisk raw\n";
-				print  "initrd $this->Host->get('kernel')\n";
+				print  "initrd $Kernel\n";
 				print "boot\n";
 			}
 			else $this->printTasking($kernelArgsArray);

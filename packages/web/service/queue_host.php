@@ -5,7 +5,7 @@ try
         $HostManager = new HostManager();
         $hostname    = $_REQUEST['hostname'];
         $taskTypeID  = $_REQUEST['taskTypeID'];
-        $taskName    = 'mfsbsd';
+        $taskName    = 'Custom Kernel';
         if (!$hostname)
                 throw new Exception('error please define hostname example: {url}/fog/service/isi_queue_host.php?hostname={name}&taskTypeID={id}');
         if (!$taskTypeID)
